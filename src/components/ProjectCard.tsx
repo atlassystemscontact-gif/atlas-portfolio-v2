@@ -31,20 +31,17 @@ export default function ProjectCard({ project, reverse }: ProjectCardProps) {
 
   return (
     <div
+      className={`project-card-wrap${reverse ? " reverse" : ""}`}
       onMouseEnter={() => setBorderHovered(true)}
       onMouseLeave={() => setBorderHovered(false)}
       style={{
-        display: "flex",
-        flexDirection: reverse ? "row-reverse" : "row",
         border: `1px solid ${borderHovered ? "var(--border-hover)" : "var(--border)"}`,
-        transition: "border-color 0.3s",
-        minHeight: "480px",
       }}
     >
       {/* Info side */}
       <div
+        className="project-card-info"
         style={{
-          flex: "0 0 45%",
           background: "var(--surface)",
           padding: "3.5rem",
           display: "flex",
@@ -134,13 +131,7 @@ export default function ProjectCard({ project, reverse }: ProjectCardProps) {
 
         {/* Highlights */}
         <div>
-          <div
-            style={{
-              display: "flex",
-              gap: "2rem",
-              marginBottom: "2rem",
-            }}
-          >
+          <div style={{ display: "flex", gap: "2rem", marginBottom: "2rem" }}>
             {project.highlights.map((h) => (
               <div key={h.label}>
                 <div
@@ -202,15 +193,13 @@ export default function ProjectCard({ project, reverse }: ProjectCardProps) {
 
       {/* Visual side */}
       <div
+        className="project-card-visual"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="group"
         style={{
-          flex: "1",
           background: "#060606",
           position: "relative",
           overflow: "hidden",
-          minHeight: "480px",
         }}
       >
         {iframeError ? (

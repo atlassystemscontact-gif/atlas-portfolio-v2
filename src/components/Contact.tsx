@@ -38,28 +38,19 @@ export default function Contact() {
   })
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // form submission placeholder
   }
 
   return (
-    <section
-      id="contato"
-      ref={ref}
-      style={{
-        padding: "6rem 4rem",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "6rem",
-        borderTop: "1px solid var(--border)",
-      }}
-    >
+    <section id="contato" ref={ref} className="contact-section">
       {/* Left */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -74,9 +65,7 @@ export default function Contact() {
             marginBottom: "1.5rem",
           }}
         >
-          <div
-            style={{ width: "2rem", height: "2px", background: "var(--accent)" }}
-          />
+          <div style={{ width: "2rem", height: "2px", background: "var(--accent)" }} />
           <span
             style={{
               fontSize: "11px",
@@ -118,7 +107,6 @@ export default function Contact() {
           e já trago ideias iniciais para a call.
         </p>
 
-        {/* Contact links */}
         <div>
           {contactLinks.map((link, i) => (
             <ContactLink
@@ -139,20 +127,7 @@ export default function Contact() {
         style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
       >
         <div>
-          <label
-            htmlFor="name"
-            style={{
-              display: "block",
-              fontSize: "11px",
-              color: "var(--muted)",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              fontFamily: "var(--font-dm)",
-              marginBottom: "0.6rem",
-            }}
-          >
-            Nome
-          </label>
+          <label htmlFor="name" style={labelStyle}>Nome</label>
           <input
             id="name"
             name="name"
@@ -166,20 +141,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            style={{
-              display: "block",
-              fontSize: "11px",
-              color: "var(--muted)",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              fontFamily: "var(--font-dm)",
-              marginBottom: "0.6rem",
-            }}
-          >
-            Email
-          </label>
+          <label htmlFor="email" style={labelStyle}>Email</label>
           <input
             id="email"
             name="email"
@@ -193,20 +155,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label
-            htmlFor="type"
-            style={{
-              display: "block",
-              fontSize: "11px",
-              color: "var(--muted)",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              fontFamily: "var(--font-dm)",
-              marginBottom: "0.6rem",
-            }}
-          >
-            Tipo de projeto
-          </label>
+          <label htmlFor="type" style={labelStyle}>Tipo de projeto</label>
           <select
             id="type"
             name="type"
@@ -215,9 +164,7 @@ export default function Contact() {
             required
             style={{ ...inputStyle, cursor: "pointer" }}
           >
-            <option value="" disabled>
-              Selecione...
-            </option>
+            <option value="" disabled>Selecione...</option>
             <option value="landing">Landing Page / Site</option>
             <option value="saas">Plataforma SaaS</option>
             <option value="ai">Automação com IA</option>
@@ -228,20 +175,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label
-            htmlFor="message"
-            style={{
-              display: "block",
-              fontSize: "11px",
-              color: "var(--muted)",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              fontFamily: "var(--font-dm)",
-              marginBottom: "0.6rem",
-            }}
-          >
-            Mensagem
-          </label>
+          <label htmlFor="message" style={labelStyle}>Mensagem</label>
           <textarea
             id="message"
             name="message"
@@ -250,11 +184,7 @@ export default function Contact() {
             placeholder="Conte sobre seu projeto..."
             required
             rows={5}
-            style={{
-              ...inputStyle,
-              resize: "vertical",
-              minHeight: "120px",
-            }}
+            style={{ ...inputStyle, resize: "vertical", minHeight: "120px" }}
           />
         </div>
 
@@ -285,6 +215,16 @@ export default function Contact() {
       </motion.form>
     </section>
   )
+}
+
+const labelStyle: React.CSSProperties = {
+  display: "block",
+  fontSize: "11px",
+  color: "var(--muted)",
+  textTransform: "uppercase",
+  letterSpacing: "0.08em",
+  fontFamily: "var(--font-dm)",
+  marginBottom: "0.6rem",
 }
 
 const inputStyle: React.CSSProperties = {

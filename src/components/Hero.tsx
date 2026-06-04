@@ -6,6 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      className="hero-section"
       style={{
         minHeight: "100vh",
         display: "flex",
@@ -13,7 +14,6 @@ export default function Hero() {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        padding: "120px 4rem 0",
       }}
     >
       {/* Background grid */}
@@ -41,7 +41,8 @@ export default function Hero() {
           width: "600px",
           height: "600px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -55,7 +56,7 @@ export default function Hero() {
           width: "100%",
         }}
       >
-        {/* Availability badge — linha separada, alinhada à direita */}
+        {/* Availability badge */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -109,7 +110,7 @@ export default function Hero() {
           style={{
             fontFamily: "var(--font-syne)",
             fontWeight: 800,
-            fontSize: "clamp(3.5rem, 8vw, 7rem)",
+            fontSize: "clamp(2.5rem, 8vw, 7rem)",
             lineHeight: 0.95,
             letterSpacing: "-0.03em",
             marginBottom: "1.75rem",
@@ -205,19 +206,12 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Stats — absolute right */}
+      {/* Stats — hidden on mobile/tablet via CSS */}
       <motion.div
+        className="hero-stats"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-        style={{
-          position: "absolute",
-          right: "4rem",
-          bottom: "6rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.5rem",
-        }}
       >
         {[
           { value: "3+", label: "Produtos lançados" },
@@ -252,8 +246,7 @@ export default function Hero() {
         ))}
       </motion.div>
 
-
-<style>{`
+      <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }

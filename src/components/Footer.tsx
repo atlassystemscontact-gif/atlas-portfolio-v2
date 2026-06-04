@@ -1,16 +1,6 @@
 export default function Footer() {
   return (
-    <footer
-      style={{
-        padding: "2rem 4rem",
-        borderTop: "1px solid var(--border)",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-        gap: "1rem",
-      }}
-    >
+    <footer className="footer-wrap">
       <span
         style={{
           fontFamily: "var(--font-syne)",

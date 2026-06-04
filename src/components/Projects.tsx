@@ -10,11 +10,7 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section
-      id="projects"
-      ref={ref}
-      style={{ padding: "4rem" }}
-    >
+    <section id="projects" ref={ref} className="projects-section">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -30,9 +26,7 @@ export default function Projects() {
             marginBottom: "1rem",
           }}
         >
-          <div
-            style={{ width: "2rem", height: "2px", background: "var(--accent)" }}
-          />
+          <div style={{ width: "2rem", height: "2px", background: "var(--accent)" }} />
           <span
             style={{
               fontSize: "11px",

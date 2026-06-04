@@ -53,14 +53,7 @@ export default function Services() {
   const inView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section
-      id="servicos"
-      ref={ref}
-      style={{
-        padding: "6rem 4rem",
-        background: "var(--surface)",
-      }}
-    >
+    <section id="servicos" ref={ref} className="services-section">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -76,9 +69,7 @@ export default function Services() {
             marginBottom: "1rem",
           }}
         >
-          <div
-            style={{ width: "2rem", height: "2px", background: "var(--accent)" }}
-          />
+          <div style={{ width: "2rem", height: "2px", background: "var(--accent)" }} />
           <span
             style={{
               fontSize: "11px",
@@ -108,16 +99,10 @@ export default function Services() {
 
       {/* Grid */}
       <motion.div
+        className="services-grid"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "1px",
-          background: "var(--border)",
-          border: "1px solid var(--border)",
-        }}
       >
         {services.map((service) => (
           <motion.div
@@ -130,8 +115,7 @@ export default function Services() {
               cursor: "default",
             }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.background =
-                "var(--surface2)")
+              ((e.currentTarget as HTMLElement).style.background = "var(--surface2)")
             }
             onMouseLeave={(e) =>
               ((e.currentTarget as HTMLElement).style.background = "var(--bg)")

@@ -43,17 +43,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section
-      id="sobre"
-      ref={ref}
-      style={{
-        padding: "6rem 4rem",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "6rem",
-        alignItems: "center",
-      }}
-    >
+    <section id="sobre" ref={ref} className="about-section">
       {/* Left */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -68,13 +58,7 @@ export default function About() {
             marginBottom: "1.5rem",
           }}
         >
-          <div
-            style={{
-              width: "2rem",
-              height: "2px",
-              background: "var(--accent)",
-            }}
-          />
+          <div style={{ width: "2rem", height: "2px", background: "var(--accent)" }} />
           <span
             style={{
               fontSize: "11px",
@@ -129,36 +113,28 @@ export default function About() {
         </p>
       </motion.div>
 
-      {/* Right — skill grid */}
+      {/* Right — skill grid (gap-as-border approach: works for any column count) */}
       <motion.div
+        className="skills-grid"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          border: "1px solid var(--border)",
-        }}
       >
-        {skills.map((skill, i) => (
+        {skills.map((skill) => (
           <motion.div
             key={skill.name}
             variants={itemVariants}
             style={{
               padding: "1.75rem",
               background: "var(--surface)",
-              borderRight: i % 2 === 0 ? "1px solid var(--border)" : "none",
-              borderBottom: i < 2 ? "1px solid var(--border)" : "none",
               transition: "background 0.2s",
               cursor: "default",
             }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.background =
-                "var(--surface2)")
+              ((e.currentTarget as HTMLElement).style.background = "var(--surface2)")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.background =
-                "var(--surface)")
+              ((e.currentTarget as HTMLElement).style.background = "var(--surface)")
             }
           >
             <div style={{ fontSize: "1.5rem", marginBottom: "0.6rem" }}>
